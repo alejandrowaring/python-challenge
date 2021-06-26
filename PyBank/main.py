@@ -26,11 +26,11 @@ with open(csvpath, 'r') as csvfile:
         last_int = row[1]
         #find the largest increase row and extract the month and value
         if difference > int(largest_increase):
-            largest_increase = row[1]
+            largest_increase = difference
             largest_increase_month = row[0]
         #find the largest decrease row and extract the month and value
         if difference < int(largest_decrease):
-            largest_decrease = row[1]
+            largest_decrease = difference
             largest_decrease_month = row[0]
         #Append the difference to the difference list
         differences.append(difference)

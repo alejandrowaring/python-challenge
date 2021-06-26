@@ -29,20 +29,20 @@ total = sum(candidate_count)
 #Find who the winner was
 winner = candidates[candidate_count.index(max(candidate_count))]
 
-#clear out the old file
+#clear out the old output file
 open(out_file,"w").close()
-#start appending to the new, clean file
+#start appending to the new, clean output file
 with open(out_file,'a') as text:
-    #print out the headers
+    #write out the headers
     text.write("Election Results \n------------------------- \n")
-    #print out the total votes
+    #write out the total votes
     text.write("Total Votes: " + str(total) + "\n-------------------------\n")
     #Figure out the candidate's percentages
     for i in range(num_cand):
         current_candidate = candidates[i]
         current_count = candidate_count[i]
         perc = '{:.2%}'.format(round(current_count / total,2))
-        #Print out all their results to the file
+        #Write out all their results to the file
         text.write(current_candidate + ": " + str(perc) + " (" + str(current_count) + ") \n")
     #write out the winner
     text.write("-------------------------\n")
