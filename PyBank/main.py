@@ -5,16 +5,15 @@ import csv
 #files we are going to use
 csvpath = os.path.join('.','Resources','budget_data.csv')
 out_file = os.path.join('.','Analysis', 'budget_data_analysis.txt')
+
 #Define all the variable values we are going to use
 differences = []
-difference = 0
 last_int = 0
 total = 0
 months = 0
 largest_increase = 0
-largest_increase_month = ""
 largest_decrease = 0
-largest_decrease_month = ""
+
 #Open the csv file
 with open(csvpath, 'r') as csvfile:
     csvreader=csv.reader(csvfile,delimiter=',')
@@ -41,10 +40,8 @@ with open(csvpath, 'r') as csvfile:
 
 #Remove First entry since its not actually the difference between 2 results
 differences.pop(0)
-#find the average of all the differences
+#Find the average of all the differences
 difference_average = round(sum(differences) / len(differences),2)
-
-
 
 #Delete old contents of the file so we can start fresh
 open(out_file,"w").close()
